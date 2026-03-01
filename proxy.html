@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Job Application Tracker</title>
+    <style>
+        * {
+            font-family: "Roboto", sans-serif;
+            /* background-color: #eff0f1; */
+        }
+    </style>
+</head>
+
+<body>
+    <header class="w-[80%] mx-auto">
+        <h1 class="font-bold text-3xl text-[#002C5C] my-5">Job Application Tracker</h1>
+        <div class="grid grid-cols-3 gap-5 ">
+            <div class="bg-slate-200 p-4 rounded-lg">
+                <p class="text-lg text-[#002C5C] font-semibold ">Total</p>
+                <p id="totalCount" class="text-xl text-[#002C5C] font-bold">0</p>
+            </div>
+            <div class="bg-slate-200 p-4 rounded-lg">
+                <p class="text-lg text-[#002C5C] font-semibold ">Interview</p>
+                <p id="totalCount" class="text-xl text-green-500 font-bold">0</p>
+            </div>
+            <div class="bg-slate-200 p-4 rounded-lg">
+                <p class="text-lg text-[#002C5C] font-semibold ">Rejected</p>
+                <p id="totalCount" class="text-xl text-red-500 font-bold">0</p>
+            </div>
+        </div>
+    </header>
+
+    <hr class="my-5">
+
+    <section class="flex justify-between w-[80%] mx-auto my-6">
+        <p class="font-semibold text-[#002C5C]">Available Jobs</p>
+        <p class="text-medium font-semibold text-neutral/50">8 Jobs</p>
+    </section>
+
+
+    <main class="w-[80%] mx-auto">
+
+        <!-- buttons -->
+        <div>
+
+            <button onclick="toggleStyle('all-filter-btn')" class="btn btn-soft btn-primary px-3 py-2 w-[80px] h-[32px]"
+                id="all-filter-btn">All</button>
+            <button onclick="toggleStyle('interview-btn')" class="btn btn-soft btn-primary px-3 py-2 w-[80px] h-[32px]"
+                id="thriving-btn">Interview</button>
+            <button onclick="toggleStyle('rejected-btn')" class="btn btn-soft btn-primary px-3 py-2 w-[80px] h-[32px]"
+                id="struggling-btn">Rejected</button>
+
+        </div>
+
+        <!-- filtered -->
+        <section id="filtered-section" class="hidden">
+
+        </section>
+
+        <section id="allCards" class="mt-5 space-y-5">
+            <!-- card-1 -->
+            <div class="flex w-full justify-between bg-slate-100 p-5 rounded-lg">
+                <!-- main part 1 -->
+                <div class="space-y-5">
+                    <!-- part-1 -->
+                    <div>
+                        <p class="jobName text-[18px] font-semibold text-[#002C5C]">Mobile First Corp</p>
+                        <p class="post text-neutral/50">React Native Developer</p>
+                    </div>
+
+                    <!-- part-2 -->
+                    <div class="flex gap-3">
+                        <p class="text-sm text-neutral/50 font-semibold">Remote </p>
+                        <p class="text-sm text-neutral/50 font-semibold">Full-Time </p>
+                        <p class="text-sm text-neutral/50 font-semibold">$130,000-$175,000</p>
+                        
+                    </div>
+
+                    <!-- part 3 -->
+                    <div >
+                        <p class="stat w-[113px] h-[36px] text-[#002C5C] font-semibold border-">NOT APPLIED</p>
+                        <p class="note">New Leaf unfurling by the east window</p>
+                    </div>
+
+                    <div class="flex gap-2 mt-2">
+
+                        <button class="thriving-btn btn btn-outline btn-success">Thriving</button>
+                        <button class="struggling-btn btn btn-outline btn-error">Struggling</button>
+                    </div>
+
+                </div>
+
+
+                <!-- main part 2-->
+                <div>
+                    <button id="btn-dlt" class="btn btn-outline btn-error">Delete</button>
+                </div>
+            </div>
+
+            <!-- card-2 -->
+            <div class="flex w-full justify-between bg-slate-200 p-5 rounded-lg">
+                <!-- main part 1 -->
+                <div class="space-y-5">
+                    <!-- part-1 -->
+                    <div>
+                        <p class="plantName text-2xl">Plant Name 2</p>
+                        <p class="latinName text-neutral/50">Latin Name</p>
+                    </div>
+                    <!-- part-2 -->
+                    <div class="flex gap-3">
+                        <p class="light bg-gray-400 p-2 rounded-sm">Bright Indicate</p>
+                        <p class="water bg-gray-400 p-2 rounded-sm">Weekly</p>
+                    </div>
+
+                    <!-- part 3 -->
+                    <div class="mt-2">
+                        <p class="stat">Not Applicable</p>
+                        <p class="note">New Leaf unfurling by the east window</p>
+                    </div>
+
+                    <div class="flex gap-2 mt-2">
+
+                        <button class="thriving-btn btn btn-outline btn-success">Thriving</button>
+                        <button class="struggling-btn btn btn-outline btn-error">Struggling</button>
+                    </div>
+
+                </div>
+
+
+                <!-- main part 2-->
+                <div>
+                    <button id="btn-dlt" class="btn btn-outline btn-error">Delete</button>
+                </div>
+            </div>
+
+            <!-- card-3 -->
+            <div class="flex w-full justify-between bg-slate-200 p-5 rounded-lg">
+                <!-- main part 1 -->
+                <div class="space-y-5">
+                    <!-- part-1 -->
+                    <div>
+                        <p class="plantName text-2xl">Plant Name 3</p>
+                        <p class="latinName text-neutral/50">Latin Name</p>
+                    </div>
+                    <!-- part-2 -->
+                    <div class="flex gap-3">
+                        <p class="light bg-gray-400 p-2 rounded-sm">Bright Indicate</p>
+                        <p class="water bg-gray-400 p-2 rounded-sm">Weekly</p>
+                    </div>
+
+                    <!-- part 3 -->
+                    <div class="mt-2">
+                        <p class="stat">Not Applicable</p>
+                        <p class="note">New Leaf unfurling by the east window</p>
+                    </div>
+
+                    <div class="flex gap-2 mt-2">
+
+                        <button class="thriving-btn btn btn-outline btn-success">Thriving</button>
+                        <button class="struggling-btn btn btn-outline btn-error">Struggling</button>
+                    </div>
+
+                </div>
+
+
+                <!-- main part 2-->
+                <div>
+                    <button id="btn-dlt" class="btn btn-outline btn-error">Delete</button>
+                </div>
+            </div>
+
+
+
+        </section>
+    </main>
+
+
+    <script src="script.js/script.js"></script>
+
+
+</body>
+
+</html>
