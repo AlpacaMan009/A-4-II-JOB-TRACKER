@@ -68,82 +68,82 @@ function toggleStyle(id) {
 
 // step 2 delegation
 mainContainer.addEventListener("click", function (event) {
-  if (event.target.classList.contains("thriving-btn")) {
+  if (event.target.classList.contains("interview-btn")) {
     const parenNode = event.target.parentNode.parentNode;
 
-    const plantName = parenNode.querySelector(".plantName").innerText;
-    const light = parenNode.querySelector(".light").innerText;
-    const water = parenNode.querySelector(".water").innerText;
-    const status = parenNode.querySelector(".status").innerText;
+    const jobName = parenNode.querySelector(".jobName").innerText;
+    const post = parenNode.querySelector(".post").innerText;
+    const details = parenNode.querySelector(".details").innerText;
+    const status = parenNode.querySelector(".stat").innerText;
     const notes = parenNode.querySelector(".notes").innerText;
 
-    parenNode.querySelector(".status").innerText = "Thrive";
+    parenNode.querySelector(".stat").innerText = "Interview";
 
     const cardInfo = {
-      plantName,
-      light,
-      water,
+      jobName,
+      post,
+      details,
       status: "Thrive",
       notes,
     };
 
-    const plantExist = thrivingList.find(
-      (item) => item.plantName == cardInfo.plantName,
+    const jobExist = interviewList.find(
+      (item) => item.jobName == cardInfo.jobName,
     );
 
-    if (!plantExist) {
-      thrivingList.push(cardInfo);
+    if (!jobExist) {
+      interviewList.push(cardInfo);
     }
 
     // step 2 finish
     // removing the plant from struggling list
-    strugglingList = strugglingList.filter(
-      (item) => item.plantName != cardInfo.plantName,
+    rejectedList = rejectedList.filter(
+      (item) => item.jobName != cardInfo.jobName,
     );
 
     // after remove rerender the html
-    if (currentStatus == "struggling-filter-btn") {
-      renderStruggling();
+    if (currentStatus == "rejected-filter-btn") {
+      renderRejected();
     }
 
     calculateCount();
-  } else if (event.target.classList.contains("struggling-btn")) {
+  } else if (event.target.classList.contains("rejected-btn")) {
     const parenNode = event.target.parentNode.parentNode;
 
-    const plantName = parenNode.querySelector(".plantName").innerText;
-    const light = parenNode.querySelector(".light").innerText;
-    const water = parenNode.querySelector(".water").innerText;
-    const status = parenNode.querySelector(".status").innerText;
+    const jobName = parenNode.querySelector(".jobName").innerText;
+    const post = parenNode.querySelector(".post").innerText;
+    const details = parenNode.querySelector(".details").innerText;
+    const status = parenNode.querySelector(".stat").innerText;
     const notes = parenNode.querySelector(".notes").innerText;
 
-    parenNode.querySelector(".status").innerText = "Struggle";
+    parenNode.querySelector(".status").innerText = "Rejected";
 
     const cardInfo = {
-      plantName,
-      light,
-      water,
-      status: "Struggle",
+      jobName,
+      post,
+      details,
+      status: "Rejected",
       notes,
     };
 
-    const plantExist = strugglingList.find(
-      (item) => item.plantName == cardInfo.plantName,
+    const jobExist = rejectedList.find(
+      (item) => item.plantName == cardInfo.jobName,
     );
 
-    if (!plantExist) {
-      strugglingList.push(cardInfo);
+    if (!jobExist) {
+      rejectedList.push(cardInfo);
     }
 
     // removing the plant from thriving list
-    thrivingList = thrivingList.filter(
-      (item) => item.plantName != cardInfo.plantName,
+    interviewList = interviewList.filter(
+      (item) => item.jobName != cardInfo.jobName,
     );
 
     // console.log(thrivingList);
 
     // after remove rerender the html
-    if (currentStatus == "thriving-filter-btn") {
-      renderThriving();
+    if (currentStatus == "interview-filter-btn") {
+      renderInterview();
     }
     calculateCount();
   }
