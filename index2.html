@@ -29,16 +29,16 @@
 
 
             <div class="bg-slate-200 p-4 rounded-lg">
-                <p  class="text-lg text-[#002C5C] font-semibold ">Interview</p>
+                <p class="text-lg text-[#002C5C] font-semibold ">Interview</p>
 
-                <p id="interviewCount" class="text-xl text-green-500 font-bold">0</p>
+                <p id="interviewCount" class="text-xl text-green-600 font-bold">0</p>
             </div>
 
 
             <div class="bg-slate-200 p-4 rounded-lg">
                 <p class="text-lg text-[#002C5C] font-semibold ">Rejected</p>
 
-                <p id="rejectedCount" class="text-xl text-red-500 font-bold">0</p>
+                <p id="rejectedCount" class="text-xl text-red-600 font-bold">0</p>
             </div>
         </div>
     </header>
@@ -57,18 +57,34 @@
         <!-- filter buttons -->
         <div>
 
-            <button onclick="toggleStyle('all-filter-btn')" class="btn btn-soft text-neutral/50  px-3 py-2 w-[80px] h-[32px]"
-                id="all-filter-btn">All</button>
+            <button onclick="toggleStyle('all-filter-btn')"
+                class="btn bg-gray-300  text-gray-500  px-3 py-2 w-[80px] h-[32px]" id="all-filter-btn">All</button>
 
-            <button onclick="toggleStyle('interview-filter-btn')" class="btn btn-soft text-neutral/50  px-3 py-2 w-[80px] h-[32px]"
+
+            <!-- interview filter btn -->
+            <button onclick="toggleStyle('interview-filter-btn')"
+                class="btn bg-gray-300  text-gray-500  px-3 py-2 w-[80px] h-[32px]"
                 id="interview-filter-btn">Interview</button>
 
-            <button onclick="toggleStyle('rejected-filter-btn')" class="btn btn-soft text-neutral/50 px-3 py-2 w-[80px] h-[32px]"
+
+            <!-- rejected filter btn -->
+            <button onclick="toggleStyle('rejected-filter-btn')"
+                class="btn bg-gray-300  text-gray-500 px-3 py-2 w-[80px] h-[32px]"
                 id="rejected-filter-btn">Rejected</button>
 
         </div>
 
+
+        <!-- filter section -->
+
+        <section id="filtered-section" class="hidden">
+
+        </section>
+
+
+        <!-- CARD SECTION -->
         <section id="allCards" class="mt-5 space-y-5">
+
             <!-- card-1 -->
             <div class="flex w-full justify-between bg-slate-100 p-5 rounded-lg">
                 <!-- main part 1 -->
@@ -76,6 +92,7 @@
                     <!-- part-1 -->
                     <div>
                         <p class="jobName text-[18px] font-semibold text-[#002C5C]">Mobile First Corp</p>
+
                         <p class="post text-neutral/50">React Native Developer</p>
                     </div>
 
@@ -90,13 +107,14 @@
                     </div>
 
                     <!-- part 3 -->
-                    <div>
 
+                    <div class="flex flex-col gap-2">
+                        <p class="stat h-[36px] w-[150px] text-[#002C5C] font-semibold text-[14px]">NOT APPLIED</p>
+
+                        <p class="note">Build cross-platform mobile applications using React Native. Work on products
+                            used
+                            by millions of users worldwide.</p>
                     </div>
-
-                    <p class="stat h-[36px] w-[150px] text-[#002C5C] font-semibold text-[14px]">NOT APPLIED</p>
-                    <p class="note">Build cross-platform mobile applications using React Native. Work on products used
-                        by millions of users worldwide.</p>
 
                     <div class="flex gap-2 mt-2">
 
@@ -136,13 +154,14 @@
                     </div>
 
                     <!-- part 3 -->
-                    <div>
-
+                    <div class="flex flex-col gap-2">
+                        <p class="stat h-[36px] w-[150px] text-[#002C5C] font-semibold text-[14px]">NOT APPLIED</p>
+                        <p class="note">Create stunning web experiences for high-profile clients. Must have portfolio
+                            and
+                            experience with modern web design trends.</p>
                     </div>
 
-                    <p class="stat h-[36px] w-[150px] text-[#002C5C] font-semibold text-[14px]">NOT APPLIED</p>
-                    <p class="note">Create stunning web experiences for high-profile clients. Must have portfolio and
-                        experience with modern web design trends.</p>
+
 
                     <div class="flex gap-2 mt-2">
 
@@ -181,14 +200,14 @@
                     </div>
 
                     <!-- part 3 -->
-                    <div>
-
+                    <div class="flex flex-col gap-2">
+                        <p class="stat h-[36px] w-[150px] text-[#002C5C] font-semibold text-[14px]">NOT APPLIED</p>
+                        <p class="note">Transform complex data into compelling visualizations. Required skills: D3.js,
+                            React, and strong analytical thinking.
+                        </p>
                     </div>
 
-                    <p class="stat h-[36px] w-[150px] text-[#002C5C] font-semibold text-[14px]">NOT APPLIED</p>
-                    <p class="note">Transform complex data into compelling visualizations. Required skills: D3.js,
-                        React, and strong analytical thinking.
-                    </p>
+
 
                     <div class="flex gap-2 mt-2">
 
@@ -230,13 +249,14 @@
                     </div>
 
                     <!-- part 3 -->
-                    <div>
-
+                    <div class="flex flex-col gap-2">
+                        <p class="stat h-[36px] w-[150px] text-[#002C5C] font-semibold text-[14px]">NOT APPLIED</p>
+                        <p class="note">Design and maintain scalable backend systems using Python and AWS. Work with
+                            modern
+                            DevOps practices and cloud infrastructure.</p>
                     </div>
 
-                    <p class="stat h-[36px] w-[150px] text-[#002C5C] font-semibold text-[14px]">NOT APPLIED</p>
-                    <p class="note">Design and maintain scalable backend systems using Python and AWS. Work with modern
-                        DevOps practices and cloud infrastructure.</p>
+
 
                     <div class="flex gap-2 mt-2">
 
@@ -277,13 +297,14 @@
                     </div>
 
                     <!-- part 3 -->
-                    <div>
-
+                    <div class="flex flex-col gap-2">
+                        <p class="stat h-[36px] w-[150px] text-[#002C5C] font-semibold text-[14px]">NOT APPLIED</p>
+                        <p class="note">Create beautiful and functional user interfaces for our suite of products.
+                            Strong
+                            design skills and frontend development expertise required.</p>
                     </div>
 
-                    <p class="stat h-[36px] w-[150px] text-[#002C5C] font-semibold text-[14px]">NOT APPLIED</p>
-                    <p class="note">Create beautiful and functional user interfaces for our suite of products. Strong
-                        design skills and frontend development expertise required.</p>
+
 
                     <div class="flex gap-2 mt-2">
 
@@ -324,14 +345,14 @@
                     </div>
 
                     <!-- part 3 -->
-                    <div>
+                    <div class="flex flex-col gap-2">
+                        <p class="stat h-[36px] w-[150px] text-[#002C5C] font-semibold text-[14px]">NOT APPLIED</p>
 
+                        <p class="note">Build enterprise applications with JavaScript and modern frameworks. We offer
+                            competitive compensation, health insurance, and professional development opportunities.</p>
                     </div>
 
-                    <p class="stat h-[36px] w-[150px] text-[#002C5C] font-semibold text-[14px]">NOT APPLIED</p>
 
-                    <p class="note">Build enterprise applications with JavaScript and modern frameworks. We offer
-                        competitive compensation, health insurance, and professional development opportunities.</p>
 
                     <div class="flex gap-2 mt-2">
 
@@ -371,13 +392,14 @@
                     </div>
 
                     <!-- part 3 -->
-                    <div>
-
+                    <div class="flex flex-col gap-2">
+                        <p class="stat h-[36px] w-[150px] text-[#002C5C] font-semibold text-[14px]">NOT APPLIED</p>
+                        <p class="note">Join our fast-growing startup and work on our core platform. Experience with
+                            Node.js
+                            and React required. Great benefits and equity package included.</p>
                     </div>
 
-                    <p class="stat h-[36px] w-[150px] text-[#002C5C] font-semibold text-[14px]">NOT APPLIED</p>
-                    <p class="note">Join our fast-growing startup and work on our core platform. Experience with Node.js
-                        and React required. Great benefits and equity package included.</p>
+
 
                     <div class="flex gap-2 mt-2">
 
@@ -418,13 +440,15 @@
                     </div>
 
                     <!-- part 3 -->
-                    <div>
+                    <div class="flex flex-col gap-2">
+                        <p class="stat h-[36px] w-[150px] text-[#002C5C] font-semibold text-[14px]">NOT APPLIED</p>
 
+                        <p class="note">We are looking for an experienced Frontend Developer to build scalable web
+                            applications using React and TypeScript. You will work with a talented team on cutting-edge
+                            projects.</p>
                     </div>
 
-                    <p class="stat h-[36px] w-[150px] text-[#002C5C] font-semibold text-[14px]">NOT APPLIED</p>
 
-                    <p class="note">We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.</p>
 
                     <div class="flex gap-2 mt-2">
 
