@@ -1,7 +1,7 @@
 let interviewList = [];
 let rejectedList = [];
 let currentStatus = "all-filter-btn";
-// let allJobsList = [];
+
 
 // for the counts
 let total = document.getElementById("totalCount");
@@ -24,13 +24,13 @@ function calculateCount() {
   total.innerText = allCardSection.children.length;
   interviewCount.innerText = interviewList.length;
   rejectedCount.innerText = rejectedList.length;
-  // allJobCount.innerText = allJobsList.length;
   allJobCount.innerText = allCardSection.children.length + " Jobs";
 }
 
 calculateCount();
 
-// step 1;
+
+// function for toggle buttons
 function toggleStyle(id) {
   allFilterBtn.classList.remove("bg-blue-600", "text-white");
   interviewFilterBtn.classList.remove("bg-blue-600", "text-white");
@@ -47,11 +47,7 @@ function toggleStyle(id) {
   currentStatus = id;
   console.log(currentStatus);
 
-  // step 1 finish
-
-  // show and hidden particular section
-  // step 4 start
-  // filtering while clicking the filter button (All, Thriving, Struggling)
+ 
   if (id == "interview-filter-btn") {
     allCardSection.classList.add("hidden");
     filterSection.classList.remove("hidden");
@@ -66,10 +62,10 @@ function toggleStyle(id) {
   }
 }
 
-// step 2 delegation
-mainContainer.addEventListener("click", function (event) {
+
+document.addEventListener("click", function (event) {
   if (event.target.classList.contains("interview-btn")) {
-    // const parenNode = event.target.parentNode.parentNode;
+    
     const parenNode = event.target.closest(".card");
 
     const jobName = parenNode.querySelector(".jobName").innerText;
@@ -96,13 +92,12 @@ mainContainer.addEventListener("click", function (event) {
       interviewList.push(cardInfo);
     }
 
-    // step 2 finish
-    // removing the plant from struggling list
+    
     rejectedList = rejectedList.filter(
       (item) => item.jobName != cardInfo.jobName,
     );
 
-    // after remove rerender the html
+  
     if (currentStatus == "rejected-filter-btn") {
       renderRejected();
     } else if (currentStatus == "interview-filter-btn") {
@@ -142,9 +137,9 @@ mainContainer.addEventListener("click", function (event) {
       (item) => item.jobName != cardInfo.jobName,
     );
 
-    // console.log(thrivingList);
+    
 
-    // after remove rerender the html
+    
     if (currentStatus == "interview-filter-btn") {
       renderInterview();
     } else if (currentStatus == "rejected-filter-btn") {
@@ -154,14 +149,21 @@ mainContainer.addEventListener("click", function (event) {
   }
 });
 
-// step 3  html file create
+
 function renderInterview() {
-  // make the filterSection empty every time
+
   filterSection.innerHTML = "";
 
   if (interviewList.length === 0) {
-    filterSection.innerHTML =
-      "<p class='p-4 text-center text-gray-500'>No interview jobs yet</p>";
+    filterSection.innerHTML = `
+             <section class="w-[80%] mx-auto mt-8">
+            <div class="px-10 py-12 flex flex-col gap-4 items-center">
+                <img src="jobs.png" alt="No jobs illustration">
+                <p class="text-3xl font-semibold text-[#002C5C]">No Jobs Available</p>
+                <p class="text-neutral/50">Check back soon for new job opportunities</p>
+            </div>
+        </section>
+    `;
     return;
   }
 
@@ -209,21 +211,24 @@ function renderInterview() {
   }
 }
 
-
-
-
-
-
 function renderRejected() {
-  // make the filterSection empty every time
+  
   filterSection.innerHTML = "";
 
   if (rejectedList.length === 0) {
     filterSection.innerHTML =
-      "<p class='p-4 text-center text-gray-500'>No rejected jobs yet</p>";
+      filterSection.innerHTML = `
+             <section class="w-[80%] mx-auto mt-8">
+            <div class="px-10 py-12 flex flex-col gap-4 items-center">
+                <img src="jobs.png" alt="No jobs illustration">
+                <p class="text-3xl font-semibold text-[#002C5C]">No Jobs Available</p>
+                <p class="text-neutral/50">Check back soon for new job opportunities</p>
+            </div>
+        </section>
+    `;
     return;
   }
-  // crating innerHtml
+ 
   for (let rejected of rejectedList) {
     let div = document.createElement("div");
     div.className =
